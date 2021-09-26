@@ -27,7 +27,7 @@ public class ImcRs {
 		try {
 			retorno = Float.toString(this.service.retornaImc(peso, altura));
 		} catch (Exception e) {
-			retorno = e.getMessage();
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.PRECONDITION_FAILED);
 		}
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 	}
